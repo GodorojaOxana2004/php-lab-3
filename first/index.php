@@ -50,7 +50,7 @@ function findTransactionByDescription(array $transactions, string $descriptionPa
 {
     $matches = [];
     foreach ($transactions as $entry) {
-        if (strpos($entry['description'], $descriptionPart) !== false) {
+        if ($entry['description'] === $descriptionPart) {
             $matches[] = $entry;
         }
     }
@@ -79,10 +79,10 @@ function findTransactionById(array $transactions, int $id): array
  */
 function daysSinceTransaction(string $date): int
 {
-    $start = DateTime::createFromFormat('Y-m-d', $date);
-    $now = new DateTime('now');
-    $difference = $now->diff($start);
-    return $difference->days;
+    $transactionDate = new DateTime($date);
+    $today = new DateTime();
+    $interval = $transactionDate->diff($today);
+    return $interval->days;
 }
 
 /**

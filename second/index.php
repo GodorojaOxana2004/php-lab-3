@@ -89,7 +89,7 @@
         if ($items === false) {
             echo "<p>Не удалось открыть директорию</p>";
         } else {
-            $items = array_filter($items, fn($item) => !in_array($item, ['.', '..']));
+            $items = array_filter($items, function($item) { return !in_array($item, ['.', '..']); });
 
             /**
              * @var array $valid_types Список разрешённых типов файлов

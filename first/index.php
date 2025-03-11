@@ -176,7 +176,7 @@ usort($transactions, function($first, $second) {
                 <tr>
                     <td><?= $entry['id'] ?></td>
                     <td><?= $entry['date'] ?></td>
-                    <td><?= number_format($entry['amount'], 2) ?></td>
+                    <td><?= $entry['amount'] ?></td>
                     <td><?= $entry['description'] ?></td>
                     <td><?= $entry['merchant'] ?></td>
                 </tr>

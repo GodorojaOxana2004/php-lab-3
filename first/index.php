@@ -81,8 +81,7 @@ function daysSinceTransaction(string $date): int
 {
     $transactionDate = new DateTime($date);
     $today = new DateTime();
-    $interval = $transactionDate->diff($today);
-    return $interval->days;
+    return ($transactionDate->diff($today))->days;
 }
 
 /**
